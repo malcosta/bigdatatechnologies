@@ -24,7 +24,7 @@ class WordCount(MRJob):
 		# swap again and generate a line per word with the same count
 		for word in words:
         		#yield word, (MAX_NUMBER - int(count))
-			yield word, int(count)
+			yield count, word
 			
 
 	def steps(self):
