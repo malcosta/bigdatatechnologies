@@ -23,7 +23,8 @@ class WordCount(MRJob):
 	def reducer2(self, count, words):
 		# swap again and generate a line per word with the same count
 		for word in words:
-        		yield word, (MAX_NUMBER - int(count))
+        		#yield word, (MAX_NUMBER - int(count))
+			yield word, int(count)
 			
 
 	def steps(self):
