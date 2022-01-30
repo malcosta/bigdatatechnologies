@@ -18,13 +18,13 @@ class WordCount(MRJob):
 		
 	def mapper2(self, word, count):
 		# swap word and count, and format count as a long string (20 chars) for sorting by count in descending order
-		yield '%020d' % (MAX_NUMBER - int(count)), word
+		if int(count) > 1: # filter words with frequency = 1
+			yield '%020d' % (MAX_NUMBER - int(count)), word
 			
 	def reducer2(self, count, words):
 		# swap again and generate a line per word with the same count
 		for word in words:
-        		#yield word, (MAX_NUMBER - int(count))
-			yield count, word
+        		yield word, (MAX_NUMBER - int(count))
 			
 
 	def steps(self):
