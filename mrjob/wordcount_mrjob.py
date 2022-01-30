@@ -24,7 +24,8 @@ class WordCount(MRJob):
 		# swap again and generate a line per word with the same count
 		for word in words:
         		yield word, (MAX_NUMBER - int(count))
-				
+			
+
 	def steps(self):
 		# pipeline of map reduce tasks
 		return [
