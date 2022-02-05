@@ -1,6 +1,8 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
+MAX_NUMBER = 1000000000
+
 class WordCount(MRJob):
 
 	def mapper1(self, _, line):
@@ -15,14 +17,15 @@ class WordCount(MRJob):
 		
 		
 	def mapper2(self, word, count):
-		# swap word and count, and format count as a long string (20 chars) for sorting by count
-		yield '%020d' % int(count), word
+		# swap word and count, and format count as a long string (20 chars) for sorting by count in descending order
+		yield '%020d' % (MAX_NUMBER - int(count)), word
 			
 	def reducer2(self, count, words):
 		# swap again and generate a line per word with the same count
 		for word in words:
-        		yield word, int(count)
-				
+        		yield word, (MAX_NUMBER - int(count))
+			
+
 	def steps(self):
 		# pipeline of map reduce tasks
 		return [
