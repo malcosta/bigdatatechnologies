@@ -6,18 +6,18 @@ TAB_CHAR = '\t'
 MIN_COUNT = 100
 
 
-def movie_title(movie_id, ratings):
+def movie_title(movie_id, avg_ratings):
 	'''
 	Convert from movie id to movie title
 	'''
 	with open("/root/input/u.item", "r") as infile:
 		reader = csv.reader(infile, delimiter='|')
 		next(reader)
-		sret = "NOT_FOUND"
+		movie_title = "NOT_FOUND"
 		for line in reader:
 			if int(movie_id) == int(line[0]):
-				sret = line[1]      
-	print(str(ratings) + TAB_CHAR + str(movie_id) + " , " + sret)
+				movie_title = line[1]      
+	print(str(avg_ratings) + TAB_CHAR + str(movie_id) + " , " + movie_title)
 
 
 last_id = None
