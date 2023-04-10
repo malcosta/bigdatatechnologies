@@ -1,5 +1,7 @@
+#!/usr/bin/env python
 import sys
 import csv
+
 
 TAB_CHAR = '\t'
 MIN_COUNT = 100

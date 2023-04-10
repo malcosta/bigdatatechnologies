@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 import sys
 
-TAB_CHAR = '\t'
 
+TAB_CHAR = '\t'
 
 arg1 = int(sys.argv[1])
 arg2 = int(sys.argv[2])
