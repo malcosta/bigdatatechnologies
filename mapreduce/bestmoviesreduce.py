@@ -11,7 +11,7 @@ def movie_title(movie_id, avg_ratings):
 	'''
 	Convert from movie id to movie title
 	'''
-	with open("/root/input/u.item", "r") as infile:
+	with open("/root/input/u.item", "r", encoding = "ISO-8859-1") as infile:
 		reader = csv.reader(infile, delimiter='|')
 		next(reader)
 		movie_title = "NOT_FOUND"
