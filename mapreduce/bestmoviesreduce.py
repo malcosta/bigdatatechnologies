@@ -17,7 +17,8 @@ def movie_title(movie_id, avg_ratings):
 		movie_title = "NOT_FOUND"
 		for line in reader:
 			if int(movie_id) == int(line[0]):
-				movie_title = line[1]      
+				movie_title = line[1]
+				break
 	print(str(avg_ratings) + TAB_CHAR + str(movie_id) + " , " + movie_title)
 
 
